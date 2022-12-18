@@ -31,7 +31,7 @@ def login():
         cur.execute(f'''INSERT INTO {DB} VALUES (%s,%s,%s,%s,%s)''',(first_name,last_name,email,choice,donate))
         mysql.connection.commit()
         cur.close()
-        return "Done"
+        return ('/')
         
 
 if __name__=='__main__':
