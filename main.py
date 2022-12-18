@@ -14,25 +14,24 @@ mysql = MySQL(app)
 
 @app.route ('/')
 def form():
-	return render_template('form.html')
+    return render_template('form.html')
 
 @app.route('/login', methods= ['POST','GET'])
 def login():
-	DB = 'FFEF_T'
-	if request.method == 'GET':
-		return 'LOG IN PROPERLY PLEASE.'
-	if request.method == 'POST':
-		first_name = request.form['firstname']
-		last_name = request.form['lastname']		
-		email = request.form['email']
-		donate = request.form['donate']
-		choice = request.form['choice']
-		cur = mysql.connection.cursor()
-		cur.execute(f'''INSERT INTO {DB} VALUES (%s,%s,%s,%s,%s)''',(first_name,last_name,email,choice,donate))
-		mysql.connection.commit()
-		cur.close()
-		return ('/')
-		
-#t
+    DB = 'FFEF_A'
+    if request.method == 'GET':
+	    return 'LOG IN PROPERLY PLEASE.'
+    if request.method == 'POST':
+        first_name = request.form['firstname']
+        last_name = request.form['lastname']		
+        email = request.form['email']
+        donate = request.form['donate']
+        choice = request.form['choice']
+        cur = mysql.connection.cursor()
+        cur.execute(f'''INSERT INTO {DB} VALUES (%s,%s,%s,%s,%s)''',(first_name,last_name,email,choice,donate))
+        mysql.connection.commit()
+        cur.close()
+        return ('/')
+        
 if __name__=='__main__':
 	app.run(debug=True)
