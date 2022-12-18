@@ -7,7 +7,8 @@ app = Flask(__name__)
 app.config['MYSQL_USER']='root'
 app.config['MYSQL_PASSWORD']='hellosql'
 app.config['MYSQL_DB']='hellodb'
-app.config['MYSQL_UNIX_SOCKET']='''/cloudsql/winter-dynamics-371520:northamerica-northeast2:hellosql''' 
+socket = "winter-dynamics-371520:northamerica-northeast2:hellosql"
+app.config['MYSQL_UNIX_SOCKET']=f'''/cloudsql/{socket}''' 
 
 mysql = MySQL(app)
 
